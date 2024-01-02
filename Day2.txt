@@ -1,0 +1,28 @@
+class Solution {
+    public int minimizeSet(int divisor1, int divisor2, int uniqueCnt1, int uniqueCnt2) {
+        int count1=0,count2=0;
+        int arr1[]=new int[uniqueCnt1];
+        int arr2[]=new int[uniqueCnt2];
+        for(int i=1;i<100000;i++)
+        {
+          if(i%divisor1!=0 && count1<uniqueCnt1)
+          {
+           arr1[count1]=i;
+            count1++;
+          }
+          else if(i%divisor2!=0 && count2<uniqueCnt2)
+          {
+              arr2[count2]=i;
+              count2++;
+          }
+          
+          if(count1==uniqueCnt1 && count2==uniqueCnt2)
+          break;
+        }
+        if(arr1[uniqueCnt1-1]>arr2[uniqueCnt2-1])
+        return arr1[uniqueCnt1-1];
+        else
+        return arr2[uniqueCnt2-1];
+
+    }
+}
